@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "530856731055",
+    "firebase_url": "https://kakesugi-kosho.firebaseio.com",
+    "project_id": "kakesugi-kosho",
+    "storage_bucket": "kakesugi-kosho.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530856731055:android:3cbea25675747d977a4f5a",
+        "android_client_info": {
+          "package_name": "jp.kfujita.kakesugikosho"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530856731055-odsta8lkp4u152oucv8u73nd5jamvrcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7sM-ex9fvCHf5ESouHLaoRmEwj_FZ8Cs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530856731055-odsta8lkp4u152oucv8u73nd5jamvrcp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
