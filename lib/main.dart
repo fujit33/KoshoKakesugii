@@ -5,8 +5,6 @@ import 'package:kakesugikosho/screeens/result_screeen.dart';
 import 'package:kakesugikosho/screeens/top_screen.dart';
 
 void main() {
-//import 'package:flutter/rendering.dart';
-//  debugPaintSizeEnabled = true;
   runApp(
     MaterialApp(
       home: MyApp(),
@@ -21,7 +19,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

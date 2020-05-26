@@ -80,7 +80,6 @@ class _RankPageState extends State<RankPage> {
   }
 
   Widget _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
-//    List rows = snapshot.map((data) => _buildListItem(context, data)).toList();
     return Expanded(
       child: SizedBox(
         height: 200.0,

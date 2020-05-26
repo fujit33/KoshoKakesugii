@@ -1,16 +1,19 @@
-# kakesugikosho
+# Name
 
-A new Flutter application.
+Flutterアプリ「コショウかけすぎぃ！』
 
-## Getting Started
+# Note
 
-This project is a starting point for a Flutter application.
+初めて作成したFlutterアプリケーションのため、お見苦しいところも多いかもしれません。
+ほそぼそとメンテナンスしていきます。
 
-A few resources to get you started if this is your first Flutter project:
+# Author
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+* 作成者：Kosuke Fujita
+* Twitter：[@fujitako03](https://twitter.com/fujitako03)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# License
+
+KoshoKakesugii is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+
+
