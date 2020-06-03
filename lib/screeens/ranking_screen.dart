@@ -39,7 +39,7 @@ class _RankPageState extends State<RankPage> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 30.0),
                     child: Text(
-                      'ランキング',
+                      '世界ランキング',
                       style: TextStyle(fontSize: 50),
                     ),
                   ),

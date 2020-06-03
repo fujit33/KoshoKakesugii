@@ -5,6 +5,7 @@ import 'package:kakesugikosho/screeens/result_screeen.dart';
 import 'package:kakesugikosho/screeens/top_screen.dart';
 
 void main() {
+//  debugPaintSizeEnabled = true;
   runApp(
     MaterialApp(
       home: MyApp(),

@@ -1,4 +1,8 @@
+import 'dart:math';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:kakesugikosho/common/painter.dart';
 import 'package:kakesugikosho/models/game.dart';
 import 'package:kakesugikosho/repositories/data_repositories.dart';
 import 'package:kakesugikosho/screeens/result_screeen.dart';
@@ -19,6 +23,7 @@ class _GamePageState extends State<GamePage> {
   int _start = 10;
   int _current = 10;
   String _name;
+  List<Offset> _points = [];
 
   void _addGame() {
     Game newGame = Game(
@@ -33,6 +38,20 @@ class _GamePageState extends State<GamePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void _addPoint() {
+    var rng = new Random();
+    const double pi = 3.1415926535897932;
+    var r = 120 * sqrt(rng.nextDouble());
+    var theta = rng.nextDouble() * 2 * pi;
+
+    double _x = 150 + r * cos(theta);
+    double _y = 150 + r * sin(theta);
+
+    setState(() {
+      _points.add(Offset(_x, _y));
     });
   }
 
@@ -60,6 +79,7 @@ class _GamePageState extends State<GamePage> {
             builder: (context) => ResultPage(
                   score: _counter,
                   name: _name,
+                  points: _points,
                 )),
       );
       sub.cancel();
@@ -104,7 +124,7 @@ class _GamePageState extends State<GamePage> {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                    'コショウメーター',
+                    'ふりかけ回数',
                     style: TextStyle(fontSize: 30),
                   ),
                 ),
@@ -137,30 +157,50 @@ class _GamePageState extends State<GamePage> {
                   ),
                   width: 70.0,
                 ),
-                DragTarget(
-                  builder: (context, accepted, rejected) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: _willAccepted
-                              ? Colors.white54
-                              : Colors.transparent,
-                          width: _willAccepted ? 1 : 1,
+                Stack(
+                  alignment: Alignment.center,
+                  children: <Widget>[
+                    Align(
+                      child: SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: Center(
+                          child: Image.asset('assets/img/ramen.png'),
                         ),
                       ),
-                      child: Center(
-                        child: Image.asset('assets/img/ramen.png'),
+                    ),
+                    Align(
+                      child: SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: CustomPaint(
+                          painter: OpenPainter(points: _points),
+                        ),
                       ),
-                    );
-                  },
-                  onWillAccept: (String data) {
-                    _incrementCounter();
-                    _willAccepted = true;
-                    return true;
-                  },
-                  onLeave: (data) {
-                    _willAccepted = false;
-                  },
+                    ),
+                    Align(
+                      child: SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: DragTarget(
+                          builder: (context, accepted, rejected) {
+                            return Container();
+                          },
+                          onWillAccept: (String data) {
+                            _incrementCounter();
+                            for (int i = 0; i < 300; i++) {
+                              _addPoint();
+                            }
+                            _willAccepted = true;
+                            return true;
+                          },
+                          onLeave: (data) {
+                            _willAccepted = false;
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -174,3 +214,22 @@ class _GamePageState extends State<GamePage> {
     );
   }
 }
+
+//class OpenPainter extends CustomPainter {
+//  final List points;
+//
+//  OpenPainter({this.points});
+//
+//  @override
+//  void paint(Canvas canvas, Size size) {
+//    var paint1 = Paint()
+//      ..color = Colors.grey
+//      ..strokeCap = StrokeCap.round //rounded points
+//      ..strokeWidth = 3;
+//    //draw points on canvas
+//    canvas.drawPoints(PointMode.points, points, paint1);
+//  }
+//
+//  @override
+//  bool shouldRepaint(CustomPainter oldDelegate) => true;
+//}
